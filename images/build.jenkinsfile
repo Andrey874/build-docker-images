@@ -14,7 +14,7 @@ pipeline {
             steps {
                 echo " ============== start building image =================="
                     dir ('images') {
-                    docker build -t ci-cd:5000/someimage:latest . '
+                    docker build -t 'ci-cd:5000'/someimage:latest . '
                 }
             }
         }
