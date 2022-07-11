@@ -14,7 +14,7 @@ pipeline {
             steps {
                 echo " ============== start building image =================="
                     dir ('images') {
-                        ssh root@192.168.1.54 'docker build -t test/someimage:latest .' 
+                        sh 'ssh root@192.168.1.54 docker build -t test/someimage:latest .' 
                 }
             }
         }
