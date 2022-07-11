@@ -14,7 +14,7 @@ pipeline {
             steps {
                 echo " ============== start building image =================="
                     dir ('images') {
-                        sh 'ssh root@192.168.1.54 cd /var/jenkins_home/workspace/build_docker_images/images; docker build -t test/someimage:latest .' 
+                        sh 'ssh root@192.168.1.54 cd /home/vagrantjenkins/workspace/build_docker_images/images; docker build -t test/someimage:latest .' 
                 }
             }
         }
