@@ -18,6 +18,7 @@ pipeline {
                         sh 'ssh root@192.168.1.54 cd /home/vagrant/jenkins/workspace/build_docker_images/images; sudo docker build -t ci-cd:5000/someimage:test .' 
                 }
             }
+        }
         stage("docker push") {
             steps {
                 echo " ============== start pushing image =================="
