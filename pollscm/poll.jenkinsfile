@@ -1,0 +1,23 @@
+#!groovy
+// Run docker build
+properties([disableConcurrentBuilds()])
+
+pipeline {
+    agent { 
+        label 'master'
+        }
+    triggers { pollSCM ('* * * * *') } 
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+        }
+    stages {
+        stage("create docker image") {
+            steps {
+                echo " ============== start building image =================="
+                    dir ('images') {
+                        sh 'ssh root@192.168.1.54 cd /home/vagrant/jenkins/workspace/build_docker_images/images; sudo docker build -t ci-cd:5000/someimage:test .' 
+                }
+            }
+        }
+    }   
+ }
